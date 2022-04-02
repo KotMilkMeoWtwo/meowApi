@@ -37,7 +37,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>meow.RestController</mainClass>
+                            <mainClass>meow.SpringRest</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

@@ -9,8 +9,6 @@ import java.io.BufferedInputStream;
 import java.io.InputStreamReader;
 import java.util.Date;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
@@ -19,14 +17,23 @@ public class RestController {
         private String date;
 
 
-        private String cpu;
+        private String freeCpu;
+        private String usedCpu;
 
-        public String getCpu() {
-            return cpu;
+        public String getUsedCpu() {
+            return usedCpu;
         }
 
-        public void setCpu(String cpu) {
-            this.cpu = cpu;
+        public void setUsedCpu(String usedCpu) {
+            this.usedCpu = usedCpu;
+        }
+
+        public String getFreeCpu() {
+            return freeCpu;
+        }
+
+        public void setFreeCpu(String freeCpu) {
+            this.freeCpu = freeCpu;
         }
 
         public String getDate() {
@@ -159,7 +166,7 @@ public class RestController {
                 b.append(stre.nextLine()).append("\n");
             }
             String[] split = b.toString().split(" ");
-            result.setCpu(split[split.length-1]);
+            result.setFreeCpu(split[split.length-1]);
         } catch (Throwable t) {
         }
 
