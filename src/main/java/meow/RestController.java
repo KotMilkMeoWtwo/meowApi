@@ -12,10 +12,10 @@ import java.util.Scanner;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
+    private int login_count;
     public static class RestResponse{
         private String param1;
         private String date;
-
 
         private String freeCpu;
         private String usedCpu;
@@ -113,11 +113,11 @@ public class RestController {
 
             Scanner stre = new Scanner(new InputStreamReader(new BufferedInputStream(v.getInputStream())));
             StringBuilder b = new StringBuilder();
-            LoggerFactory.getLogger("test").info(b.toString());
-            LoggerFactory.getLogger("test").info("meo");
+            //LoggerFactory.getLogger("test").info(b.toString());
+            //LoggerFactory.getLogger("test").info("meo");
             v.waitFor();
             v.isAlive();
-            LoggerFactory.getLogger("v").info(v.toString());
+            //LoggerFactory.getLogger("v").info(v.toString());
             while (stre.hasNext()) {
                 b.append(stre.nextLine()).append("\n");
             }
@@ -169,7 +169,8 @@ public class RestController {
             result.setFreeCpu(split[split.length-1]);
         } catch (Throwable t) {
         }
-
+        LoggerFactory.getLogger("Login").info("Человек зашёл на api");
+        LoggerFactory.getLogger("Login count").info("Всего человек за сегодня: " + login_count++);
         result.setDate(date.toString());
         return result;
     }
