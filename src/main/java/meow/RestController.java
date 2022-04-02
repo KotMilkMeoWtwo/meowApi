@@ -171,6 +171,7 @@ public class RestController {
         }
         LoggerFactory.getLogger("Login").info("Человек зашёл на api");
         LoggerFactory.getLogger("Login count").info("Всего человек за сегодня: " + login_count++);
+        //https://media.discordapp.net/attachments/950652034284138547/952915111276847104/SPOILER_RaylaGift.png?width=453&height=681
         result.setDate(date.toString());
         return result;
     }
